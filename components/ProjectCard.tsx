@@ -2,7 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowUpRight, ExternalLink, Smartphone, Globe, Layers } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, ArrowRight, Smartphone, Globe } from "lucide-react";
 import { Project } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -21,7 +22,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       {/* Ambient hover glow inside card */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#2f7bff]/5 rounded-full blur-[100px] pointer-events-none group-hover:bg-[#2f7bff]/10 transition-all duration-700" />
 
-      <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-6 sm:p-8 lg:p-12 items-center`}>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-6 sm:p-8 lg:p-12 items-center">
         
         {/* Visual Showcase (7 cols) */}
         <div
@@ -29,8 +30,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             isEven ? "lg:order-2" : "lg:order-1"
           } flex flex-col`}
         >
-          {/* Browser / Device Chrome Frame */}
-          <div className="rounded-2xl bg-[#121216] border border-white/10 overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.015]">
+          {/* Clickable Browser / Device Chrome Frame */}
+          <Link
+            href={`/work/${project.id}`}
+            className="block rounded-2xl bg-[#121216] border border-white/10 overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.015] focus:outline-none focus:ring-2 focus:ring-[#2f7bff]/50"
+            aria-label={`Read case study for ${project.title}`}
+          >
             {/* Top Bar */}
             <div className="flex items-center justify-between px-4 py-3 bg-[#18181e] border-b border-white/5">
               <div className="flex items-center gap-2">
@@ -59,7 +64,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {project.isPrototype ? (
               /* Mobile Prototype Stage: Centered native smartphone bezel with blueprint backdrop */
               <div className="relative w-full py-8 sm:py-10 px-4 bg-[#070709] flex items-center justify-center overflow-hidden">
-                {/* Prototype stage background grid & radial glow */}
                 <div className="absolute inset-0 bg-grid-pattern opacity-40" />
                 <div className="absolute w-64 h-64 bg-[#2f7bff]/15 rounded-full blur-[70px] pointer-events-none" />
                 
@@ -102,7 +106,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               </div>
             )}
-          </div>
+          </Link>
         </div>
 
         {/* Text & Content Block (5 cols) */}
@@ -129,8 +133,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           {/* Title */}
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-4 group-hover:text-[#5b9aff] transition-colors">
-            {project.title}
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-4">
+            <Link
+              href={`/work/${project.id}`}
+              className="hover:text-[#5b9aff] transition-colors focus:outline-none focus:underline"
+            >
+              {project.title}
+            </Link>
           </h2>
 
           {/* Description */}
@@ -151,22 +160,31 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           {/* Action Area */}
-          <div className="pt-2">
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <Link
+              href={`/work/${project.id}`}
+              className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl font-medium text-sm bg-white text-black hover:bg-[#2f7bff] hover:text-white transition-all duration-300 shadow-lg group/btn cursor-pointer"
+              aria-label={`Explore case study for ${project.title}`}
+            >
+              <span>Explore Case Study</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+            </Link>
+
             {project.liveUrl ? (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-medium text-sm bg-white text-black hover:bg-[#2f7bff] hover:text-white transition-all duration-300 shadow-lg group/btn cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl font-medium text-xs bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white border border-white/10 hover:border-white/20 transition-all duration-300"
                 aria-label={`Visit live site for ${project.title}`}
               >
-                <span>Visit Live Platform</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                <span>Live Site</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-white" />
               </a>
             ) : (
-              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-zinc-300 text-xs font-mono">
-                <span className="w-2 h-2 rounded-full bg-amber-400/80 animate-pulse" />
-                <span>Prototype / Internal Concept Build</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-zinc-400 text-xs font-mono">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400/80 animate-pulse" />
+                <span>Concept Prototype</span>
               </div>
             )}
           </div>
