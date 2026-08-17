@@ -6,6 +6,7 @@ import { ArrowDown, Layers, Sparkles } from "lucide-react";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
@@ -13,37 +14,55 @@ export default function Hero() {
   const scrollCueRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) return;
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
+      // 0.0s - 0.7s: Ambient glow gently expands and fades in
       tl.fromTo(
-        badgeRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, delay: 0.2 }
+        glowRef.current,
+        { opacity: 0, scale: 0.85 },
+        { opacity: 1, scale: 1, duration: 0.7, ease: "power2.out" }
       )
+        // 0.0s - 0.25s: Small hero label reveals
+        .fromTo(
+          badgeRef.current,
+          { opacity: 0, y: 12 },
+          { opacity: 1, y: 0, duration: 0.35 },
+          0
+        )
+        // 0.1s - 0.45s: Main headline reveals (blur -> sharp, slight y offset)
         .fromTo(
           titleRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 1.0 },
-          "-=0.5"
+          { opacity: 0, y: 16, filter: "blur(4px)" },
+          { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45 },
+          0.1
         )
+        // 0.25s - 0.55s: Supporting narrative fades in
         .fromTo(
           descRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.9 },
-          "-=0.7"
+          { opacity: 0, y: 12 },
+          { opacity: 1, y: 0, duration: 0.4 },
+          0.25
         )
+        // 0.35s - 0.65s: Quick specs cards reveal with subtle stagger
         .fromTo(
-          metaRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.6"
+          metaRef.current?.children ? Array.from(metaRef.current.children) : metaRef.current,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.35, stagger: 0.06 },
+          0.35
         )
+        // 0.45s - 0.75s: Bottom scroll cue enters smoothly
         .fromTo(
           scrollCueRef.current,
-          { opacity: 0, y: 15 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.5"
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.35 },
+          0.45
         );
     }, containerRef);
 
@@ -63,7 +82,10 @@ export default function Hero() {
       className="relative min-h-[92vh] flex flex-col justify-between pt-32 pb-12 overflow-hidden bg-grid-pattern hero-radial-glow"
     >
       {/* Ambient background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[#1964eb]/5 dark:bg-[#2f7bff]/10 blur-[130px] pointer-events-none rounded-full" />
+      <div
+        ref={glowRef}
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[#1964eb]/5 dark:bg-[#2f7bff]/10 blur-[130px] pointer-events-none rounded-full"
+      />
 
       {/* Main Content */}
       <div className="portfolio-container relative z-10 my-auto flex flex-col items-start max-w-5xl">
