@@ -81,7 +81,7 @@ export default function CaseStudyNav() {
           : "opacity-0 translate-y-6"
       }`}
     >
-      <div className="pointer-events-auto flex items-center gap-1.5 p-1.5 rounded-full bg-[#0a0a0f]/85 dark:bg-[#0a0a0f]/85 light:bg-white/90 backdrop-blur-xl border border-white/10 dark:border-white/10 light:border-black/10 shadow-[0_10px_30px_rgba(0,0,0,0.8),0_0_20px_rgba(47,123,255,0.15)] light:shadow-[0_10px_30px_rgba(0,0,0,0.1)]">
+      <div className="pointer-events-auto flex items-center gap-1.5 p-1.5 rounded-full bg-white/90 dark:bg-[#0a0a0f]/85 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.8),0_0_20px_rgba(47,123,255,0.15)]">
         <nav className="flex items-center gap-1 overflow-x-auto no-scrollbar max-w-[85vw] sm:max-w-none px-1">
           {SECTIONS.map((sec) => {
             const isActive = activeSection === sec.id;
@@ -91,8 +91,8 @@ export default function CaseStudyNav() {
                 onClick={() => scrollTo(sec.id)}
                 className={`relative px-3 py-1.5 rounded-full text-xs font-mono tracking-wider uppercase transition-all duration-200 cursor-pointer select-none whitespace-nowrap ${
                   isActive
-                    ? "text-white bg-[#2f7bff] dark:bg-[#2f7bff] light:bg-[#1964eb] shadow-[0_0_15px_rgba(47,123,255,0.5)] font-semibold"
-                    : "text-zinc-400 dark:text-zinc-400 light:text-zinc-600 hover:text-white dark:hover:text-white light:hover:text-black hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-black/5"
+                    ? "text-white bg-[#1964eb] dark:bg-[#2f7bff] shadow-[0_0_15px_rgba(47,123,255,0.5)] font-semibold"
+                    : "text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
                 }`}
                 aria-current={isActive ? "true" : undefined}
               >
@@ -102,11 +102,11 @@ export default function CaseStudyNav() {
           })}
         </nav>
 
-        <div className="h-4 w-px bg-white/10 dark:bg-white/10 light:bg-black/10 mx-0.5 hidden sm:block" />
+        <div className="h-4 w-px bg-black/10 dark:bg-white/10 mx-0.5 hidden sm:block" />
 
         <button
           onClick={scrollToTop}
-          className="p-1.5 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 hover:bg-white/15 dark:hover:bg-white/15 light:hover:bg-black/10 text-zinc-400 dark:text-zinc-400 light:text-zinc-600 hover:text-white dark:hover:text-white light:hover:text-black transition-colors cursor-pointer"
+          className="p-1.5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/15 text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors cursor-pointer"
           title="Scroll to top"
           aria-label="Scroll to top"
         >

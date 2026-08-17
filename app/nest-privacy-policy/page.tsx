@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function NestPrivacyPolicyPage() {
   return (
-    <main className="relative min-h-screen bg-black dark:bg-black light:bg-[#f8f9fc] text-white dark:text-white light:text-zinc-900 selection:bg-[#2f7bff] selection:text-white flex flex-col transition-colors duration-200">
+    <main className="relative min-h-screen bg-[#f8f9fc] dark:bg-black text-zinc-900 dark:text-white selection:bg-[#2f7bff] selection:text-white flex flex-col transition-colors duration-200">
       <Navbar />
 
       <div className="portfolio-container pt-36 pb-24 flex-1">
@@ -33,89 +33,89 @@ export default function NestPrivacyPolicyPage() {
           </div>
 
           {/* Header */}
-          <div className="mb-12 border-b border-white/10 dark:border-white/10 light:border-black/10 pb-8">
+          <div className="mb-12 border-b border-black/10 dark:border-white/10 pb-8">
             <span className="text-xs font-mono tracking-widest text-zinc-500 uppercase mb-3 block">
               Legal &amp; Privacy
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white dark:text-white light:text-zinc-900 mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white mb-4">
               Privacy Policy — NEST
             </h1>
-            <p className="text-sm font-mono text-zinc-400 dark:text-zinc-400 light:text-zinc-500">
+            <p className="text-sm font-mono text-zinc-600 dark:text-zinc-400">
               Last updated: August 16, 2026
             </p>
           </div>
 
           {/* Document Content */}
-          <div className="text-zinc-300 dark:text-zinc-300 light:text-zinc-700 space-y-10 leading-relaxed text-base">
+          <div className="text-zinc-700 dark:text-zinc-300 space-y-10 leading-relaxed text-base">
             <section>
-              <p className="text-lg text-zinc-200 dark:text-zinc-200 light:text-zinc-800 leading-relaxed font-light">
+              <p className="text-lg text-zinc-800 dark:text-zinc-200 leading-relaxed font-light">
                 NEST (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;the app&rdquo;) is a pregnancy companion app developed by Iuvora. This policy explains what information we collect, how we use it, and how we protect it.
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white dark:text-white light:text-zinc-900 tracking-tight pt-2 border-t border-white/10 dark:border-white/10 light:border-black/10">
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight pt-2 border-t border-black/10 dark:border-white/10">
                 Information We Collect
               </h2>
-              <ul className="list-disc pl-6 space-y-2.5 text-zinc-300 dark:text-zinc-300 light:text-zinc-700">
+              <ul className="list-disc pl-6 space-y-2.5 text-zinc-700 dark:text-zinc-300">
                 <li>
-                  <strong className="text-white dark:text-white light:text-zinc-900">Account information:</strong> name, email address, and authentication data (via email/password, one-time email codes, or Google Sign-In)
+                  <strong className="text-zinc-900 dark:text-white">Account information:</strong> name, email address, and authentication data (via email/password, one-time email codes, or Google Sign-In)
                 </li>
                 <li>
-                  <strong className="text-white dark:text-white light:text-zinc-900">Pregnancy information:</strong> last menstrual period or due date, which we use to calculate your pregnancy week
+                  <strong className="text-zinc-900 dark:text-white">Pregnancy information:</strong> last menstrual period or due date, which we use to calculate your pregnancy week
                 </li>
                 <li>
-                  <strong className="text-white dark:text-white light:text-zinc-900">Emergency contact information:</strong> names and phone numbers you choose to add
+                  <strong className="text-zinc-900 dark:text-white">Emergency contact information:</strong> names and phone numbers you choose to add
                 </li>
                 <li>
-                  <strong className="text-white dark:text-white light:text-zinc-900">Doctor and hospital information:</strong> names, phone numbers, and email addresses you choose to add
+                  <strong className="text-zinc-900 dark:text-white">Doctor and hospital information:</strong> names, phone numbers, and email addresses you choose to add
                 </li>
                 <li>
-                  <strong className="text-white dark:text-white light:text-zinc-900">Health journal entries:</strong> mood, symptoms, notes, and weight you choose to log
+                  <strong className="text-zinc-900 dark:text-white">Health journal entries:</strong> mood, symptoms, notes, and weight you choose to log
                 </li>
                 <li>
-                  <strong className="text-white dark:text-white light:text-zinc-900">Appointment information:</strong> titles, dates, and times you add
+                  <strong className="text-zinc-900 dark:text-white">Appointment information:</strong> titles, dates, and times you add
                 </li>
                 <li>
-                  <strong className="text-white dark:text-white light:text-zinc-900">Nutrition checklist data:</strong> which items you mark as completed each day
+                  <strong className="text-zinc-900 dark:text-white">Nutrition checklist data:</strong> which items you mark as completed each day
                 </li>
                 <li>
-                  <strong className="text-white dark:text-white light:text-zinc-900">Chat messages:</strong> questions you ask NEST Guide, our educational AI assistant
+                  <strong className="text-zinc-900 dark:text-white">Chat messages:</strong> questions you ask NEST Guide, our educational AI assistant
                 </li>
               </ul>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white dark:text-white light:text-zinc-900 tracking-tight pt-2 border-t border-white/10 dark:border-white/10 light:border-black/10">
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight pt-2 border-t border-black/10 dark:border-white/10">
                 How We Use Your Information
               </h2>
               <p>
                 We use your information solely to provide app features to you: calculating your pregnancy timeline, displaying your saved contacts and doctor information during an emergency action, storing your journal and appointment history, and generating responses to your questions in NEST Guide.
               </p>
-              <p className="font-medium text-white dark:text-white light:text-zinc-900">
+              <p className="font-medium text-zinc-900 dark:text-white">
                 We do not sell your information to third parties.
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white dark:text-white light:text-zinc-900 tracking-tight pt-2 border-t border-white/10 dark:border-white/10 light:border-black/10">
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight pt-2 border-t border-black/10 dark:border-white/10">
                 Third-Party Services
               </h2>
-              <ul className="list-disc pl-6 space-y-2.5 text-zinc-300 dark:text-zinc-300 light:text-zinc-700">
+              <ul className="list-disc pl-6 space-y-2.5 text-zinc-700 dark:text-zinc-300">
                 <li>
-                  <strong className="text-white dark:text-white light:text-zinc-900">Supabase</strong> — securely stores your account and app data
+                  <strong className="text-zinc-900 dark:text-white">Supabase</strong> — securely stores your account and app data
                 </li>
                 <li>
-                  <strong className="text-white dark:text-white light:text-zinc-900">Google</strong> — used only if you choose to sign in with your Google account
+                  <strong className="text-zinc-900 dark:text-white">Google</strong> — used only if you choose to sign in with your Google account
                 </li>
                 <li>
-                  <strong className="text-white dark:text-white light:text-zinc-900">Google Gemini API</strong> — powers the NEST Guide educational assistant; messages you send to NEST Guide are processed by this service to generate a response
+                  <strong className="text-zinc-900 dark:text-white">Google Gemini API</strong> — powers the NEST Guide educational assistant; messages you send to NEST Guide are processed by this service to generate a response
                 </li>
               </ul>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white dark:text-white light:text-zinc-900 tracking-tight pt-2 border-t border-white/10 dark:border-white/10 light:border-black/10">
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight pt-2 border-t border-black/10 dark:border-white/10">
                 NEST Guide (AI Assistant)
               </h2>
               <p>
@@ -124,14 +124,14 @@ export default function NestPrivacyPolicyPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white dark:text-white light:text-zinc-900 tracking-tight pt-2 border-t border-white/10 dark:border-white/10 light:border-black/10">
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight pt-2 border-t border-black/10 dark:border-white/10">
                 Your Choices
               </h2>
               <p>
                 You may edit or delete your emergency contacts, doctor information, and journal entries at any time within the app. To request full account deletion, contact us at{" "}
                 <a
                   href="mailto:hello@iuvora.com"
-                  className="text-[#2f7bff] dark:text-[#2f7bff] light:text-[#1964eb] hover:underline underline-offset-4"
+                  className="text-[#1964eb] dark:text-[#2f7bff] hover:underline underline-offset-4"
                 >
                   hello@iuvora.com
                 </a>
@@ -140,7 +140,7 @@ export default function NestPrivacyPolicyPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white dark:text-white light:text-zinc-900 tracking-tight pt-2 border-t border-white/10 dark:border-white/10 light:border-black/10">
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight pt-2 border-t border-black/10 dark:border-white/10">
                 Data Security
               </h2>
               <p>
@@ -149,7 +149,7 @@ export default function NestPrivacyPolicyPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white dark:text-white light:text-zinc-900 tracking-tight pt-2 border-t border-white/10 dark:border-white/10 light:border-black/10">
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight pt-2 border-t border-black/10 dark:border-white/10">
                 Children&apos;s Privacy
               </h2>
               <p>
@@ -158,7 +158,7 @@ export default function NestPrivacyPolicyPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white dark:text-white light:text-zinc-900 tracking-tight pt-2 border-t border-white/10 dark:border-white/10 light:border-black/10">
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight pt-2 border-t border-black/10 dark:border-white/10">
                 Changes to This Policy
               </h2>
               <p>
@@ -167,14 +167,14 @@ export default function NestPrivacyPolicyPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white dark:text-white light:text-zinc-900 tracking-tight pt-2 border-t border-white/10 dark:border-white/10 light:border-black/10">
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight pt-2 border-t border-black/10 dark:border-white/10">
                 Contact Us
               </h2>
               <p>
                 Questions about this policy can be sent to{" "}
                 <a
                   href="mailto:info@iuvora.com"
-                  className="text-[#2f7bff] dark:text-[#2f7bff] light:text-[#1964eb] hover:underline underline-offset-4"
+                  className="text-[#1964eb] dark:text-[#2f7bff] hover:underline underline-offset-4"
                 >
                   info@iuvora.com
                 </a>

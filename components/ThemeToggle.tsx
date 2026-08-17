@@ -10,7 +10,7 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
   if (!mounted) {
     return (
       <div
-        className={`w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center opacity-40 ${className}`}
+        className={`w-8 h-8 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center opacity-40 ${className}`}
         aria-hidden="true"
       />
     );

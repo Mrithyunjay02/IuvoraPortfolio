@@ -27,14 +27,16 @@ export default function BackButton({
     }
   };
 
+  const buttonClasses = `inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-black/[0.04] dark:bg-white/[0.04] hover:bg-black/[0.08] dark:hover:bg-white/[0.08] border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 text-xs font-mono tracking-wider uppercase text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-all duration-300 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#2f7bff]/50 ${className}`;
+
   if (!deterministic) {
     return (
       <button
         onClick={handleBack}
-        className={`inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] dark:bg-white/[0.04] light:bg-black/[0.04] hover:bg-white/[0.08] dark:hover:bg-white/[0.08] light:hover:bg-black/[0.08] border border-white/10 dark:border-white/10 light:border-black/10 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 text-xs font-mono tracking-wider uppercase text-zinc-400 dark:text-zinc-400 light:text-zinc-600 hover:text-white dark:hover:text-white light:hover:text-black transition-all duration-300 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#2f7bff]/50 ${className}`}
+        className={buttonClasses}
         aria-label={label}
       >
-        <ArrowLeft className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-400 light:text-zinc-600 group-hover:text-white dark:group-hover:text-white light:group-hover:text-black group-hover:-translate-x-1 transition-transform duration-200" />
+        <ArrowLeft className="w-3.5 h-3.5 text-zinc-600 dark:text-zinc-400 group-hover:text-black dark:group-hover:text-white group-hover:-translate-x-1 transition-transform duration-200" />
         <span>{label}</span>
       </button>
     );
@@ -43,10 +45,10 @@ export default function BackButton({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] dark:bg-white/[0.04] light:bg-black/[0.04] hover:bg-white/[0.08] dark:hover:bg-white/[0.08] light:hover:bg-black/[0.08] border border-white/10 dark:border-white/10 light:border-black/10 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 text-xs font-mono tracking-wider uppercase text-zinc-400 dark:text-zinc-400 light:text-zinc-600 hover:text-white dark:hover:text-white light:hover:text-black transition-all duration-300 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#2f7bff]/50 ${className}`}
+      className={buttonClasses}
       aria-label={label}
     >
-      <ArrowLeft className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-400 light:text-zinc-600 group-hover:text-white dark:group-hover:text-white light:group-hover:text-black group-hover:-translate-x-1 transition-transform duration-200" />
+      <ArrowLeft className="w-3.5 h-3.5 text-zinc-600 dark:text-zinc-400 group-hover:text-black dark:group-hover:text-white group-hover:-translate-x-1 transition-transform duration-200" />
       <span>{label}</span>
     </Link>
   );

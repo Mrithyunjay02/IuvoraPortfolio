@@ -43,11 +43,13 @@ const themeInitScript = `
 (function() {
   try {
     var savedTheme = localStorage.getItem('iuvora_theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') {
-      document.documentElement.classList.add(savedTheme);
-      document.documentElement.classList.remove(savedTheme === 'dark' ? 'light' : 'dark');
-    } else {
+    var isDark = savedTheme ? savedTheme === 'dark' : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (isDark) {
       document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    } else {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
     }
   } catch (e) {
     document.documentElement.classList.add('dark');
@@ -65,7 +67,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="min-h-screen flex flex-col font-sans selection:bg-[#2f7bff] selection:text-white">
+      <body className="min-h-screen flex flex-col font-sans bg-background text-foreground selection:bg-[#2f7bff] selection:text-white">
         <ThemeProvider>
           <BrandedIntro />
           <SmoothScroll>{children}</SmoothScroll>

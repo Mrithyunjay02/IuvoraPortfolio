@@ -1,36 +1,9 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  /* ─── Dark Theme Tokens (Flagship Default) ─────────────────────── */
-  --bg-primary: #000000;
-  --bg-surface: #0a0a0c;
-  --bg-surface-elevated: #111116;
-  --bg-card: #08080c;
-  --bg-card-hover: #0e0e14;
-  --bg-nav: rgba(0, 0, 0, 0.72);
-  --bg-modal: rgba(0, 0, 0, 0.95);
-  
-  --fg-primary: #ffffff;
-  --fg-muted: #8e8e98;
-  --fg-subtle: #585862;
-  
-  --color-accent: #2f7bff;
-  --color-accent-light: #5b9aff;
-  --color-accent-dim: #1852b8;
-  --color-accent-glow: rgba(47, 123, 255, 0.22);
-  --color-accent-bg: rgba(47, 123, 255, 0.12);
-  
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.15);
-  --border-hover: rgba(47, 123, 255, 0.35);
-
-  --shadow-card: 0 20px 50px -15px rgba(0, 0, 0, 0.9);
-  --radial-glow: radial-gradient(circle 600px at 50% 10%, rgba(47, 123, 255, 0.12), transparent 70%);
-  --grid-pattern-color: rgba(255, 255, 255, 0.07);
-}
-
-html.light {
-  /* ─── Light Theme Tokens (Warm Editorial & Architectural Polish) ── */
+  /* ─── Light Mode Tokens (Warm Architectural Editorial) ─────────── */
   --bg-primary: #f8f9fc;
   --bg-surface: #ffffff;
   --bg-surface-elevated: #f1f3f9;
@@ -58,6 +31,35 @@ html.light {
   --grid-pattern-color: rgba(0, 0, 0, 0.05);
 }
 
+.dark {
+  /* ─── Dark Mode Tokens (Flagship Luxury Default) ───────────────── */
+  --bg-primary: #000000;
+  --bg-surface: #0a0a0c;
+  --bg-surface-elevated: #111116;
+  --bg-card: #08080c;
+  --bg-card-hover: #0e0e14;
+  --bg-nav: rgba(0, 0, 0, 0.72);
+  --bg-modal: rgba(0, 0, 0, 0.95);
+  
+  --fg-primary: #ffffff;
+  --fg-muted: #8e8e98;
+  --fg-subtle: #585862;
+  
+  --color-accent: #2f7bff;
+  --color-accent-light: #5b9aff;
+  --color-accent-dim: #1852b8;
+  --color-accent-glow: rgba(47, 123, 255, 0.22);
+  --color-accent-bg: rgba(47, 123, 255, 0.12);
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-hover: rgba(47, 123, 255, 0.35);
+
+  --shadow-card: 0 20px 50px -15px rgba(0, 0, 0, 0.9);
+  --radial-glow: radial-gradient(circle 600px at 50% 10%, rgba(47, 123, 255, 0.12), transparent 70%);
+  --grid-pattern-color: rgba(255, 255, 255, 0.07);
+}
+
 @theme inline {
   --color-bg-primary: var(--bg-primary);
   --color-bg-surface: var(--bg-surface);
@@ -77,7 +79,6 @@ html {
   background-color: var(--bg-primary);
   color: var(--fg-primary);
   scroll-behavior: auto; /* Lenis controls smooth scrolling */
-  transition: background-color 200ms ease, color 200ms ease;
 }
 
 body {
@@ -88,7 +89,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   selection-background-color: var(--color-accent);
-  transition: background-color 200ms ease, color 200ms ease;
 }
 
 ::selection {
