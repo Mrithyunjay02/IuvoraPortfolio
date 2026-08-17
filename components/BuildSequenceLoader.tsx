@@ -10,19 +10,8 @@ const STAGES = [
   { step: "03", label: "CURATED EXPERIENCE", detail: "Finalizing selected works showcase" },
 ];
 
-function checkShouldLoad(): boolean {
-  if (typeof window === "undefined") return false;
-  try {
-    const hasViewed = sessionStorage.getItem("iuvora_build_loaded");
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    return hasViewed !== "true" && !prefersReduced;
-  } catch {
-    return false;
-  }
-}
-
 export default function BuildSequenceLoader() {
-  const [mounted, setMounted] = useState<boolean>(checkShouldLoad);
+  const [mounted, setMounted] = useState<boolean>(true);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const topBarRef = useRef<HTMLDivElement>(null);
@@ -39,19 +28,23 @@ export default function BuildSequenceLoader() {
   const pill2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!mounted) return;
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReduced) {
+      if (containerRef.current) {
+        containerRef.current.style.display = "none";
+      }
+      const t = setTimeout(() => setMounted(false), 0);
+      return () => clearTimeout(t);
+    }
 
     let isDismissed = false;
 
     const forceDismiss = () => {
       if (isDismissed) return;
       isDismissed = true;
-
-      try {
-        sessionStorage.setItem("iuvora_build_loaded", "true");
-      } catch {
-        // ignore storage errors
-      }
 
       if (containerRef.current) {
         gsap.to(containerRef.current, {
@@ -71,12 +64,12 @@ export default function BuildSequenceLoader() {
       }
     };
 
-    // HARD FAILSAFE TIMER: guaranteed dismissal at 1.8s no matter what
+    // HARD FAILSAFE TIMER: guaranteed dismissal at 1.8s maximum lifetime
     const hardTimer = setTimeout(() => {
       forceDismiss();
     }, 1800);
 
-    // GSAP Sequence: updates DOM nodes directly without triggering React re-renders
+    // GSAP Sequence: updates DOM nodes directly without React re-render overhead
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         defaults: { ease: "power3.out" },
@@ -159,7 +152,7 @@ export default function BuildSequenceLoader() {
       clearTimeout(hardTimer);
       ctx.revert();
     };
-  }, [mounted]);
+  }, []);
 
   if (!mounted) return null;
 
