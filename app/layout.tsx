@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import BrandedIntro from "@/components/BrandedIntro";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} dark bg-black`}>
       <body className="bg-black text-white min-h-screen flex flex-col font-sans selection:bg-[#2f7bff] selection:text-white">
+        <BrandedIntro />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
