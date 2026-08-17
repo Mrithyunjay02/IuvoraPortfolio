@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import BrandedIntro from "@/components/BrandedIntro";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,16 +39,37 @@ export const metadata: Metadata = {
   },
 };
 
+const themeInitScript = `
+(function() {
+  try {
+    var savedTheme = localStorage.getItem('iuvora_theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      document.documentElement.classList.add(savedTheme);
+      document.documentElement.classList.remove(savedTheme === 'dark' ? 'light' : 'dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (e) {
+    document.documentElement.classList.add('dark');
+  }
+})();
+`;
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} dark bg-black`}>
-      <body className="bg-black text-white min-h-screen flex flex-col font-sans selection:bg-[#2f7bff] selection:text-white">
-        <BrandedIntro />
-        <SmoothScroll>{children}</SmoothScroll>
+    <html lang="en" className={`${inter.variable} dark`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="min-h-screen flex flex-col font-sans selection:bg-[#2f7bff] selection:text-white">
+        <ThemeProvider>
+          <BrandedIntro />
+          <SmoothScroll>{children}</SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -161,31 +161,31 @@ export default function ProjectGallery() {
     <section
       id="gallery"
       ref={containerRef}
-      className="relative py-24 lg:py-36 bg-black border-t border-white/5"
+      className="relative py-24 lg:py-36 bg-black dark:bg-black light:bg-white border-t border-white/5 dark:border-white/5 light:border-black/5 transition-colors duration-200"
     >
       <div className="portfolio-container">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-16 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-[#5b9aff] mb-4 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-xs font-mono text-[#5b9aff] dark:text-[#5b9aff] light:text-[#1964eb] mb-4 uppercase tracking-wider">
               <span>Showcase Directory</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white dark:text-white light:text-zinc-900">
               Featured Case Studies
             </h2>
           </div>
-          <p className="text-zinc-400 text-sm max-w-md leading-relaxed font-light">
+          <p className="text-zinc-400 dark:text-zinc-400 light:text-zinc-600 text-sm max-w-md leading-relaxed font-light">
             Deep dive into architecture, interface systems, and product executions delivered across commercial and prototype engagements.
           </p>
         </div>
 
         {/* Premium Filter Controls & Live Count Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-12 border-b border-white/10">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 mb-12 border-b border-white/10 dark:border-white/10 light:border-black/10">
           {/* Category Filter Pills */}
           <nav
             role="tablist"
             aria-label="Filter portfolio projects by category"
-            className="flex items-center gap-1.5 p-1 rounded-2xl bg-[#0a0a0f] border border-white/10 w-fit overflow-x-auto max-w-full no-scrollbar"
+            className="flex items-center gap-1.5 p-1 rounded-2xl bg-[#0a0a0f] dark:bg-[#0a0a0f] light:bg-[#f1f3f8] border border-white/10 dark:border-white/10 light:border-black/10 w-fit overflow-x-auto max-w-full no-scrollbar"
           >
             {FILTER_OPTIONS.map((option) => {
               const isActive = activeCategory === option.id;
@@ -198,8 +198,8 @@ export default function ProjectGallery() {
                   onClick={() => handleCategorySelect(option.id)}
                   className={`relative px-4 py-2 rounded-xl text-xs font-mono tracking-wider transition-all duration-200 cursor-pointer select-none whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-[#2f7bff]/50 ${
                     isActive
-                      ? "bg-[#2f7bff] text-white font-semibold shadow-[0_0_18px_rgba(47,123,255,0.4)]"
-                      : "text-zinc-400 hover:text-white hover:bg-white/5"
+                      ? "bg-[#2f7bff] dark:bg-[#2f7bff] light:bg-[#1964eb] text-white font-semibold shadow-[0_0_18px_rgba(47,123,255,0.4)]"
+                      : "text-zinc-400 dark:text-zinc-400 light:text-zinc-600 hover:text-white dark:hover:text-white light:hover:text-zinc-900 hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-black/5"
                   }`}
                 >
                   {option.label}
@@ -209,12 +209,12 @@ export default function ProjectGallery() {
           </nav>
 
           {/* Dynamic Result Counter */}
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 w-fit">
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] dark:bg-white/[0.03] light:bg-black/[0.04] border border-white/10 dark:border-white/10 light:border-black/10 w-fit">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2f7bff] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2f7bff]" />
             </span>
-            <span className="text-xs font-mono tracking-widest text-zinc-300 uppercase">
+            <span className="text-xs font-mono tracking-widest text-zinc-300 dark:text-zinc-300 light:text-zinc-700 uppercase">
               {countLabel}
             </span>
           </div>

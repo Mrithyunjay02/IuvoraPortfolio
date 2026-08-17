@@ -192,25 +192,25 @@ export default function Capabilities() {
     <section
       id="capabilities"
       ref={containerRef}
-      className="relative py-24 lg:py-36 bg-black border-t border-white/5"
+      className="relative py-24 lg:py-36 bg-black dark:bg-black light:bg-[#f8f9fc] border-t border-white/5 dark:border-white/5 light:border-black/5 transition-colors duration-200"
     >
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[#2f7bff]/8 blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[#2f7bff]/8 dark:bg-[#2f7bff]/8 light:bg-[#1964eb]/5 blur-[140px] pointer-events-none rounded-full" />
 
       <div className="portfolio-container relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 lg:mb-24 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-[#5b9aff] mb-4 uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-xs font-mono text-[#5b9aff] dark:text-[#5b9aff] light:text-[#1964eb] mb-4 uppercase tracking-wider">
               <span>What We Build</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.08]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white dark:text-white light:text-zinc-900 leading-[1.08]">
               Digital systems engineered <br />
-              <span className="text-zinc-400">to move businesses forward.</span>
+              <span className="text-zinc-400 dark:text-zinc-400 light:text-zinc-500">to move businesses forward.</span>
             </h2>
           </div>
-          <p className="text-zinc-400 text-sm max-w-md leading-relaxed font-light">
+          <p className="text-zinc-400 dark:text-zinc-400 light:text-zinc-600 text-sm max-w-md leading-relaxed font-light">
             We architect and deliver verified web platforms, client onboarding portals, and mobile systems built around specific operational demands.
           </p>
         </div>
@@ -230,30 +230,30 @@ export default function Capabilities() {
                   onMouseEnter={() => handleSelectCapability(idx)}
                   className={`text-left p-6 rounded-2xl transition-all duration-300 border cursor-pointer group focus:outline-none focus:ring-2 focus:ring-[#2f7bff]/50 relative ${
                     isActive
-                      ? "bg-[#09090e] border-[#2f7bff]/40 shadow-[0_0_30px_rgba(47,123,255,0.12)]"
-                      : "bg-transparent border-transparent hover:border-white/10 hover:bg-white/[0.02]"
+                      ? "bg-[#09090e] dark:bg-[#09090e] light:bg-white border-[#2f7bff]/40 dark:border-[#2f7bff]/40 light:border-[#1964eb]/40 shadow-[0_0_30px_rgba(47,123,255,0.12)] light:shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
+                      : "bg-transparent border-transparent hover:border-white/10 dark:hover:border-white/10 light:hover:border-black/10 hover:bg-white/[0.02] dark:hover:bg-white/[0.02] light:hover:bg-black/[0.02]"
                   }`}
                 >
                   {/* Left accent bar on active */}
                   {isActive && (
-                    <div className="absolute left-0 top-6 bottom-6 w-1 rounded-r bg-[#2f7bff] shadow-[0_0_10px_#2f7bff]" />
+                    <div className="absolute left-0 top-6 bottom-6 w-1 rounded-r bg-[#2f7bff] dark:bg-[#2f7bff] light:bg-[#1964eb] shadow-[0_0_10px_#2f7bff]" />
                   )}
 
                   <div className="flex items-center justify-between gap-4 mb-2 pl-2">
                     <div className="flex items-center gap-3">
                       <span
                         className={`font-mono text-xs font-semibold tracking-widest transition-colors ${
-                          isActive ? "text-[#2f7bff]" : "text-zinc-500 group-hover:text-zinc-400"
+                          isActive ? "text-[#2f7bff] dark:text-[#2f7bff] light:text-[#1964eb]" : "text-zinc-500 group-hover:text-zinc-400 dark:group-hover:text-zinc-400 light:group-hover:text-zinc-600"
                         }`}
                       >
                         {cap.number}
                       </span>
-                      <span className="text-zinc-700 font-mono text-xs">/</span>
+                      <span className="text-zinc-700 dark:text-zinc-700 light:text-zinc-400 font-mono text-xs">/</span>
                       <span
                         className={`font-mono text-[11px] uppercase tracking-wider px-2 py-0.5 rounded border transition-colors ${
                           isActive
-                            ? "bg-[#2f7bff]/10 border-[#2f7bff]/30 text-[#5b9aff]"
-                            : "bg-white/5 border-white/5 text-zinc-500"
+                            ? "bg-[#2f7bff]/10 dark:bg-[#2f7bff]/10 light:bg-[#1964eb]/10 border-[#2f7bff]/30 dark:border-[#2f7bff]/30 light:border-[#1964eb]/30 text-[#5b9aff] dark:text-[#5b9aff] light:text-[#1964eb]"
+                            : "bg-white/5 dark:bg-white/5 light:bg-black/5 border-white/5 dark:border-white/5 light:border-black/5 text-zinc-500"
                         }`}
                       >
                         {count} {count === 1 ? (cap.isPrototype ? "PROTOTYPE" : "BUILD") : "BUILDS"}
@@ -263,7 +263,7 @@ export default function Capabilities() {
                     <ArrowRight
                       className={`w-4 h-4 transition-all duration-300 ${
                         isActive
-                          ? "text-[#5b9aff] translate-x-1"
+                          ? "text-[#5b9aff] dark:text-[#5b9aff] light:text-[#1964eb] translate-x-1"
                           : "text-zinc-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
                       }`}
                     />
@@ -271,7 +271,7 @@ export default function Capabilities() {
 
                   <h3
                     className={`text-lg font-semibold tracking-tight transition-colors pl-2 ${
-                      isActive ? "text-white" : "text-zinc-400 group-hover:text-zinc-200"
+                      isActive ? "text-white dark:text-white light:text-zinc-900" : "text-zinc-400 dark:text-zinc-400 light:text-zinc-600 group-hover:text-zinc-200 dark:group-hover:text-zinc-200 light:group-hover:text-zinc-900"
                     }`}
                   >
                     {cap.title}
@@ -279,7 +279,7 @@ export default function Capabilities() {
 
                   <p
                     className={`text-xs mt-2 leading-relaxed transition-colors line-clamp-2 pl-2 ${
-                      isActive ? "text-zinc-300" : "text-zinc-500 group-hover:text-zinc-400"
+                      isActive ? "text-zinc-300 dark:text-zinc-300 light:text-zinc-600" : "text-zinc-500 dark:text-zinc-500 light:text-zinc-500 group-hover:text-zinc-400"
                     }`}
                   >
                     {cap.tagline}
@@ -292,34 +292,34 @@ export default function Capabilities() {
           {/* Right Column: Large Active Showcase Stage (7 cols) */}
           <div
             ref={previewStageRef}
-            className="col-span-7 p-8 sm:p-10 rounded-3xl bg-[#09090d] border border-white/10 space-y-8 shadow-2xl relative overflow-hidden"
+            className="col-span-7 p-8 sm:p-10 rounded-3xl bg-[#09090d] dark:bg-[#09090d] light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 space-y-8 shadow-2xl light:shadow-[0_20px_50px_rgba(0,0,0,0.06)] relative overflow-hidden"
           >
             {/* Ambient inner glow */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#2f7bff]/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#2f7bff]/10 dark:bg-[#2f7bff]/10 light:bg-[#1964eb]/5 rounded-full blur-[100px] pointer-events-none" />
 
             {/* Showcase Visual Viewport */}
-            <div className="rounded-2xl bg-[#111116] border border-white/10 overflow-hidden shadow-xl">
-              <div className="flex items-center justify-between px-4 py-2.5 bg-[#17171d] border-b border-white/5">
+            <div className="rounded-2xl bg-[#111116] dark:bg-[#111116] light:bg-[#f1f3f9] border border-white/10 dark:border-white/10 light:border-black/10 overflow-hidden shadow-xl">
+              <div className="flex items-center justify-between px-4 py-2.5 bg-[#17171d] dark:bg-[#17171d] light:bg-[#e4e7f0] border-b border-white/5 dark:border-white/5 light:border-black/5">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                   <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
                   <span className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
                 </div>
-                <div className="flex items-center gap-2 px-2.5 py-0.5 rounded bg-black/50 text-[11px] font-mono text-zinc-400">
+                <div className="flex items-center gap-2 px-2.5 py-0.5 rounded bg-black/50 dark:bg-black/50 light:bg-white text-[11px] font-mono text-zinc-400 dark:text-zinc-400 light:text-zinc-700">
                   {activeCapability.isPrototype ? (
-                    <Smartphone className="w-3 h-3 text-[#2f7bff]" />
+                    <Smartphone className="w-3 h-3 text-[#2f7bff] dark:text-[#2f7bff] light:text-[#1964eb]" />
                   ) : (
-                    <Globe className="w-3 h-3 text-[#2f7bff]" />
+                    <Globe className="w-3 h-3 text-[#2f7bff] dark:text-[#2f7bff] light:text-[#1964eb]" />
                   )}
                   <span>{activeCapability.title}</span>
                 </div>
-                <div className="text-[10px] font-mono text-zinc-500 uppercase">
+                <div className="text-[10px] font-mono text-zinc-500 dark:text-zinc-500 light:text-zinc-600 uppercase">
                   {activeCapability.isPrototype ? "Mobile Concept" : "Production Web"}
                 </div>
               </div>
 
               {activeCapability.isPrototype ? (
-                <div className="relative w-full py-10 px-4 bg-[#050507] flex items-center justify-center overflow-hidden">
+                <div className="relative w-full py-10 px-4 bg-[#050507] dark:bg-[#050507] light:bg-[#f5f6fa] flex items-center justify-center overflow-hidden">
                   <div className="absolute inset-0 bg-grid-pattern opacity-40" />
                   <div className="relative z-10 w-[180px] rounded-[28px] p-2 bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-900 border border-white/20 shadow-xl">
                     <div className="relative w-full aspect-[285/611] rounded-[20px] overflow-hidden bg-black">
@@ -334,7 +334,7 @@ export default function Capabilities() {
                   </div>
                 </div>
               ) : (
-                <div className="relative w-full aspect-[16/9] bg-[#050507] overflow-hidden">
+                <div className="relative w-full aspect-[16/9] bg-[#050507] dark:bg-[#050507] light:bg-[#f5f6fa] overflow-hidden">
                   <Image
                     src={activeCapability.previewImage}
                     alt={activeCapability.title}
@@ -349,16 +349,16 @@ export default function Capabilities() {
 
             {/* Description Narrative */}
             <div className="space-y-3">
-              <h3 className="text-2xl font-bold tracking-tight text-white">
+              <h3 className="text-2xl font-bold tracking-tight text-white dark:text-white light:text-zinc-900">
                 {activeCapability.title}
               </h3>
-              <p className="text-zinc-300 text-sm leading-relaxed">
+              <p className="text-zinc-300 dark:text-zinc-300 light:text-zinc-600 text-sm leading-relaxed">
                 {activeCapability.description}
               </p>
             </div>
 
             {/* Sub-Capabilities List (2x2 grid) */}
-            <div className="space-y-3 pt-2 border-t border-white/5">
+            <div className="space-y-3 pt-2 border-t border-white/5 dark:border-white/5 light:border-black/5">
               <div className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase">
                 Included Deliverables &amp; Modules
               </div>
@@ -366,9 +366,9 @@ export default function Capabilities() {
                 {activeCapability.services.map((svc, sIdx) => (
                   <div
                     key={sIdx}
-                    className="flex items-start gap-2.5 text-xs text-zinc-300"
+                    className="flex items-start gap-2.5 text-xs text-zinc-300 dark:text-zinc-300 light:text-zinc-700"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2f7bff] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2f7bff] dark:text-[#2f7bff] light:text-[#1964eb] shrink-0 mt-0.5" />
                     <span>{svc}</span>
                   </div>
                 ))}
@@ -376,7 +376,7 @@ export default function Capabilities() {
             </div>
 
             {/* Technologies */}
-            <div className="space-y-3 pt-2 border-t border-white/5">
+            <div className="space-y-3 pt-2 border-t border-white/5 dark:border-white/5 light:border-black/5">
               <div className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase">
                 Verified Technical Toolchain
               </div>
@@ -384,9 +384,9 @@ export default function Capabilities() {
                 {activeCapability.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-mono text-zinc-300"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-xs font-mono text-zinc-300 dark:text-zinc-300 light:text-zinc-700"
                   >
-                    <Cpu className="w-3 h-3 text-[#2f7bff]" />
+                    <Cpu className="w-3 h-3 text-[#2f7bff] dark:text-[#2f7bff] light:text-[#1964eb]" />
                     <span>{tech}</span>
                   </span>
                 ))}
@@ -394,7 +394,7 @@ export default function Capabilities() {
             </div>
 
             {/* Related Projects Links */}
-            <div className="space-y-3 pt-2 border-t border-white/5">
+            <div className="space-y-3 pt-2 border-t border-white/5 dark:border-white/5 light:border-black/5">
               <div className="text-[11px] font-mono tracking-widest text-zinc-500 uppercase">
                 Explore Case Studies in this Discipline
               </div>
@@ -403,9 +403,9 @@ export default function Capabilities() {
                   <Link
                     key={p.id}
                     href={`/work/${p.id}`}
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-[#2f7bff] border border-white/10 hover:border-[#2f7bff] text-xs text-white hover:text-white transition-all duration-200 group"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.04] dark:bg-white/[0.04] light:bg-black/[0.04] hover:bg-[#2f7bff] dark:hover:bg-[#2f7bff] light:hover:bg-[#1964eb] border border-white/10 dark:border-white/10 light:border-black/10 hover:border-[#2f7bff] text-xs text-white dark:text-white light:text-zinc-800 hover:text-white dark:hover:text-white light:hover:text-white transition-all duration-200 group"
                   >
-                    <span className="font-mono text-[#5b9aff] group-hover:text-white">
+                    <span className="font-mono text-[#5b9aff] dark:text-[#5b9aff] light:text-[#1964eb] group-hover:text-white">
                       {p.number}
                     </span>
                     <span className="font-medium">{p.title}</span>
@@ -429,31 +429,31 @@ export default function Capabilities() {
             return (
               <div
                 key={cap.id}
-                className="rounded-2xl bg-[#09090d] border border-white/10 overflow-hidden"
+                className="rounded-2xl bg-[#09090d] dark:bg-[#09090d] light:bg-white border border-white/10 dark:border-white/10 light:border-black/10 overflow-hidden shadow-sm"
               >
                 {/* Accordion Toggle Header */}
                 <button
                   onClick={() => setMobileExpanded(isExpanded ? null : cap.id)}
                   aria-expanded={isExpanded}
                   aria-controls={`content-${cap.id}`}
-                  className="w-full flex items-center justify-between p-5 text-left focus:outline-none"
+                  className="w-full flex items-center justify-between p-5 text-left focus:outline-none cursor-pointer"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs font-semibold text-[#2f7bff]">
+                      <span className="font-mono text-xs font-semibold text-[#2f7bff] dark:text-[#2f7bff] light:text-[#1964eb]">
                         {cap.number}
                       </span>
-                      <span className="text-zinc-600 font-mono text-xs">/</span>
-                      <span className="font-mono text-[10px] uppercase text-zinc-400">
+                      <span className="text-zinc-600 dark:text-zinc-600 light:text-zinc-400 font-mono text-xs">/</span>
+                      <span className="font-mono text-[10px] uppercase text-zinc-400 dark:text-zinc-400 light:text-zinc-600">
                         {cap.relatedProjectIds.length} {cap.relatedProjectIds.length === 1 ? "Build" : "Builds"}
                       </span>
                     </div>
-                    <div className="text-base font-semibold text-white">
+                    <div className="text-base font-semibold text-white dark:text-white light:text-zinc-900">
                       {cap.title}
                     </div>
                   </div>
 
-                  <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400">
+                  <div className="w-8 h-8 rounded-full bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 flex items-center justify-center text-zinc-400">
                     {isExpanded ? (
                       <ChevronUp className="w-4 h-4" />
                     ) : (
@@ -466,14 +466,14 @@ export default function Capabilities() {
                 {isExpanded && (
                   <div
                     id={`content-${cap.id}`}
-                    className="p-5 pt-0 space-y-5 border-t border-white/5"
+                    className="p-5 pt-0 space-y-5 border-t border-white/5 dark:border-white/5 light:border-black/5"
                   >
-                    <p className="text-xs text-zinc-300 leading-relaxed pt-3">
+                    <p className="text-xs text-zinc-300 dark:text-zinc-300 light:text-zinc-600 leading-relaxed pt-3">
                       {cap.description}
                     </p>
 
                     {/* Preview Image */}
-                    <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-black/60 border border-white/10">
+                    <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-black/60 border border-white/10 dark:border-white/10 light:border-black/10">
                       <Image
                         src={cap.previewImage}
                         alt={cap.title}
@@ -492,9 +492,9 @@ export default function Capabilities() {
                         {cap.services.map((svc, sIdx) => (
                           <div
                             key={sIdx}
-                            className="flex items-center gap-2 text-xs text-zinc-300"
+                            className="flex items-center gap-2 text-xs text-zinc-300 dark:text-zinc-300 light:text-zinc-700"
                           >
-                            <CheckCircle2 className="w-3 h-3 text-[#2f7bff] shrink-0" />
+                            <CheckCircle2 className="w-3 h-3 text-[#2f7bff] dark:text-[#2f7bff] light:text-[#1964eb] shrink-0" />
                             <span>{svc}</span>
                           </div>
                         ))}
@@ -510,7 +510,7 @@ export default function Capabilities() {
                         {cap.technologies.map((t) => (
                           <span
                             key={t}
-                            className="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[11px] font-mono text-zinc-300"
+                            className="px-2 py-0.5 rounded bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-[11px] font-mono text-zinc-300 dark:text-zinc-300 light:text-zinc-700"
                           >
                             {t}
                           </span>
@@ -528,9 +528,9 @@ export default function Capabilities() {
                           <Link
                             key={p.id}
                             href={`/work/${p.id}`}
-                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-white"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 dark:bg-white/5 light:bg-black/5 border border-white/10 dark:border-white/10 light:border-black/10 text-xs text-white dark:text-white light:text-zinc-800"
                           >
-                            <span className="font-mono text-[#5b9aff]">{p.number}</span>
+                            <span className="font-mono text-[#5b9aff] dark:text-[#5b9aff] light:text-[#1964eb]">{p.number}</span>
                             <span>{p.title}</span>
                             <ArrowUpRight className="w-3 h-3 text-zinc-400" />
                           </Link>
@@ -545,19 +545,19 @@ export default function Capabilities() {
         </div>
 
         {/* Section Bottom Transition to Works Archive */}
-        <div className="mt-20 pt-10 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="mt-20 pt-10 border-t border-white/10 dark:border-white/10 light:border-black/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider block mb-1">
               Architecture &amp; Execution
             </span>
-            <p className="text-lg font-medium text-white tracking-tight">
+            <p className="text-lg font-medium text-white dark:text-white light:text-zinc-900 tracking-tight">
               Built around the problem, not the template.
             </p>
           </div>
 
           <button
             onClick={scrollToWorks}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-mono tracking-wider uppercase bg-white/5 hover:bg-[#2f7bff] text-zinc-300 hover:text-white border border-white/10 hover:border-[#2f7bff] transition-all duration-300 cursor-pointer group"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-mono tracking-wider uppercase bg-white/5 dark:bg-white/5 light:bg-black/5 hover:bg-[#2f7bff] dark:hover:bg-[#2f7bff] light:hover:bg-[#1964eb] text-zinc-300 dark:text-zinc-300 light:text-zinc-700 hover:text-white dark:hover:text-white light:hover:text-white border border-white/10 dark:border-white/10 light:border-black/10 hover:border-[#2f7bff] transition-all duration-300 cursor-pointer group"
           >
             <span>Explore Curated Archive</span>
             <ArrowDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-y-0.5" />
