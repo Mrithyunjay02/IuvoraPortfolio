@@ -150,3 +150,13 @@ body {
 .hero-radial-glow {
   background: radial-gradient(circle 600px at 50% 10%, rgba(47, 123, 255, 0.12), transparent 70%);
 }
+
+/* Hide scrollbar for clean horizontal navigation */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
