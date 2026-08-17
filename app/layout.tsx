@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import BuildSequenceLoader from "@/components/BuildSequenceLoader";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({
@@ -68,6 +69,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col font-sans bg-background text-foreground selection:bg-[#2f7bff] selection:text-white">
         <ThemeProvider>
+          <BuildSequenceLoader />
           <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
       </body>
