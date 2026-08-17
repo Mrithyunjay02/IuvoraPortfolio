@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Capabilities from "@/components/Capabilities";
+import TrustCredibility from "@/components/TrustCredibility";
 import ProjectGallery from "@/components/ProjectGallery";
 import Footer from "@/components/Footer";
 
@@ -11,6 +12,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Capabilities />
+      <TrustCredibility />
       <ProjectGallery />
       <Footer />
     </main>
